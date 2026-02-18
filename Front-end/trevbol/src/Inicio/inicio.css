@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #2a2d34;
+}
+.contenedor_principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.contenedor_principal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../Img/Fondo_pro.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+    z-index: -1;
+}
+nav{
+    background-color: #38443f79 ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+}
+.logo h3{
+    color: white;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 15px;
+}
+.botones{
+    display: flex;
+    flex-direction: row;
+    margin-right: 15px;
+    justify-content: center;
+    align-items: center;
+}
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+li{
+    list-style: none;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    cursor: pointer;
+}
+li:hover{
+    border-bottom: 4px solid #ffffff;
+    border-radius: 4px;
+
+}
+#activa{
+    border-bottom: 4px solid #ffffff;
+    border-radius: 4px;
+}
+#carrito{
+    border: 1px solid white;
+    border-radius: 25px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+}
+.container1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    gap: 25px;
+
+}
+
+.container-img{
+    width: 35%;
+    height: 85%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+}
+.container-img img{
+    margin-bottom: 25px;
+    width: 95vh;
+    height: 95vh;
+    filter: drop-shadow(0px 0px 5px #ffffff);
+}
+.container{
+    width: 45%;
+    height: 60%;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-content: center;
+    gap: 20px;
+    background-color: #38443f70;
+    margin-top: 5%;
+    margin-right: 5%;
+
+}
+.container h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.container p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin-top: 15px;
+    margin-left: 15px;
+    max-width: 85%;
+}
+.container button{
+    width: 150px;
+    height: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin: 15px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.container button:hover{
+    background-color: white;
+    color: #1f7d53;
+    border: 1px solid transparent;
+}
