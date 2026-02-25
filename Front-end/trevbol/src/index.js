@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter} from "react-router";
+import {BrowserRouter, Route,Routes} from "react-router";
 import './index.css';
 import Inicio from './Inicio/Inicio';
+import Catalogo from './Catalogo/Catalogo';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <Inicio />
+  <Routes>
+    <Route path='/' element={<Inicio/>}/>
+    <Route path="/inicio" element={<Inicio />} />
+    <Route path="/catalogo" element={<Catalogo />} />
+  </Routes>
   </BrowserRouter>
 );
 

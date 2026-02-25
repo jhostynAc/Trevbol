@@ -54,13 +54,13 @@ nav {
     align-items: center;
 }
 
-ul {
+nav ul {
     display: flex;
     flex-direction: row;
     gap: 15px;
 }
 
-li {
+nav li {
     list-style: none;
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -68,9 +68,14 @@ li {
     cursor: pointer;
 }
 
-li:hover {
+nav li:hover {
     border-bottom: 4px solid #ffffff;
     border-radius: 4px;
+}
+
+nav li a{
+    text-decoration: none;
+    color: white;
 }
 
 #activa {

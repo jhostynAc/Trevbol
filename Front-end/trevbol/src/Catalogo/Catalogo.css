@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #131416;
+}
+
+nav {
+    background-color: #38443f79;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    position: sticky;
+    top: 0;
+    transition: 0.7s;
+}
+
+.logo img {
+    width: 15%;
+    height: 15%;
+    margin-left: 20px;
+}
+
+.botones {
+    display: flex;
+    flex-direction: row;
+    margin-right: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+nav li {
+    list-style: none;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+nav li:hover {
+    border-bottom: 4px solid #ffffff;
+    border-radius: 4px;
+}
+
+nav li a{
+    text-decoration: none;
+    color: white;
+}
+
+
+#activa {
+    border-bottom: 4px solid #ffffff;
+    border-radius: 4px;
+}
+
+#carrito {
+    border: 1px solid white;
+    border-radius: 25px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+}
+.cont_product {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    background-color: rgb(255, 255, 255);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containercart{
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #ffffff;
+    width: 400px;
+    z-index: 1;
+}
+.hiddent-cart{
+    display: none;
+}
+.close-cart{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+.close-cart:hover{
+    color: red;
+}
+.cartproduct{
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    justify-content: space-between;
+    flex: 0.8;
+}
+.info-cart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.titulo_carrito{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.preciopro{
+    font-weight: 400;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.cantidad{
+    font-weight: 400;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.cart_total{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.151);
+}
+.cart_total h3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+.totalpagar{
+    font-weight: 400;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.Titulo {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.Titulo h2{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin-left: 15px;
+}
+.containercompra{
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2%;
+    gap: 25px;
+    
+}
+.containertarje{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 420px;
+    border: 1px solid rgba(70, 68, 68, 0.781);
+    gap: 10px;
+    border-radius: 15px;
+
+}
+.cont-img {
+    width: 85%; 
+    height: 50%;
+}
+.cont-img img{
+    width: 100%;
+    height: 100%;
+}
+.descripciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 95%;
+    height: 45%;
+    gap: 10px;
+    margin-left: 15px;
+}
+.descripciones h3{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.descripciones p{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+.precios {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+.precios p{
+    font-size: 20px;
+}
+.botonestalla {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.botonestalla button{
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+.containertarje #botonagregar{
+    width: 90%;
+    height: 15%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.containertarje #botonagregar:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+footer{
+    margin-top: 25px;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: white;
+    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.151);
+}
+.redes{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-left: 15px;
+    font-size: 20px;
+}
+footer p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin-left: 15px;
+}
+.btnclearall{
+    width: 90%;
+    height: 35px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    background-color: transparent;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 25px;
+    margin-left: 5%;
+    margin-bottom: 5px;
+}
+.btnclearall:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}

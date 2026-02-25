@@ -4,6 +4,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import camisafon from '../Img/machape.png';
 import logo from '../Img/Logo.png';
+import { Link } from 'react-router';
 function inicio() {
     return (
         <body>
@@ -11,10 +12,10 @@ function inicio() {
                     <div className="logo"><img src={logo} alt="logo" /></div>
                     <div className="botones">
                         <ul>
-                            <li id='activa'><link rel="stylesheet" href="" />Inicio</li>
-                            <li><link rel="stylesheet" href="" />Sublimacion</li>
-                            <li><link rel="stylesheet" href="" />Serigrafia</li>
-                            <li><link rel="stylesheet" href="" />Catalogo</li>
+                            <li id='activa'><Link to="/inicio">Inicio</Link></li>
+                            <li><Link to="">Sublimacion</Link></li>
+                            <li><Link to="">Serigrafia</Link></li>
+                            <li><Link to="/catalogo">Catalogo</Link></li>
                             <li id='carrito'><link rel="stylesheet" href="" /><FontAwesomeIcon icon={faCartShopping} /></li>
                         </ul>
                     </div>
