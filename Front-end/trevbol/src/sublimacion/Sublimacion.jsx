@@ -1,4 +1,4 @@
-import './Catalogo.css';
+import './Sublimacion.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faClose, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -8,7 +8,7 @@ import { producto } from '../data';
 import { useState } from 'react';
 import { all } from 'axios';
 
-export default function Catalogo() {
+export default function Sublimacion() {
     const [allproducts, setAllproducts] = useState([]);
     const [total, setTotal] = useState(0);
     const [contProduct, setCountProduct] = useState(0);
@@ -66,9 +66,9 @@ export default function Catalogo() {
                 <div className="botones">
                     <ul>
                         <li ><Link to="/inicio">Inicio</Link></li>
-                        <li><Link to="sublimacion">Sublimacion</Link></li>
-                        <li><Link to="/serigrafia">Serigrafia</Link></li>
-                        <li id='activa'><Link to="/catalogo">Catalogo</Link></li>
+                        <li id='activa'><Link to="/sublimacion">Sublimacion</Link></li>
+                        <li ><Link to="/serigrafia">Serigrafia</Link></li>
+                        <li><Link to="/catalogo">Catalogo</Link></li>
                         <li id='carrito' onClick={() => setActiveCart(!activecart)}><FontAwesomeIcon icon={faCartShopping} /></li>
                         <div className="cont_product">
                             <span id='contador'>{contProduct}</span>
@@ -105,10 +105,11 @@ export default function Catalogo() {
                 </div>
             </nav>
             <div className="Titulo">
-                <h2>Catalogo</h2>
+                <h2>sublimacion</h2>
             </div>
             <div className="containercompra">
-                {producto.map((product) => (
+                {producto.filter(val => val.tipo === 'sublimacion')
+                .map((product) => (
                     <div className="containertarje" key={product.id}>
                         <><div className="cont-img">
                             <img src={product.img} alt="" />

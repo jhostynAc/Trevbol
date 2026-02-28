@@ -4,6 +4,8 @@ import {BrowserRouter, Route,Routes} from "react-router";
 import './index.css';
 import Inicio from './Inicio/Inicio';
 import Catalogo from './Catalogo/Catalogo';
+import Serigrafia from'./serigrafia/Serigrafia';
+import Sublimacion from './sublimacion/Sublimacion';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +15,8 @@ root.render(
     <Route path='/' element={<Inicio/>}/>
     <Route path="/inicio" element={<Inicio />} />
     <Route path="/catalogo" element={<Catalogo />} />
+    <Route path='/serigrafia' element={<Serigrafia/>}/>
+    <Route path='/sublimacion' element={<Sublimacion/>}/>
   </Routes>
   </BrowserRouter>
 );

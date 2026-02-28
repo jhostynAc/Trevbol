@@ -13,10 +13,9 @@ function inicio() {
                     <div className="botones">
                         <ul>
                             <li id='activa'><Link to="/inicio">Inicio</Link></li>
-                            <li><Link to="">Sublimacion</Link></li>
-                            <li><Link to="">Serigrafia</Link></li>
+                            <li><Link to="/sublimacion">Sublimacion</Link></li>
+                            <li><Link to="/serigrafia">Serigrafia</Link></li>
                             <li><Link to="/catalogo">Catalogo</Link></li>
-                            <li id='carrito'><link rel="stylesheet" href="" /><FontAwesomeIcon icon={faCartShopping} /></li>
                         </ul>
                     </div>
                 </nav>
