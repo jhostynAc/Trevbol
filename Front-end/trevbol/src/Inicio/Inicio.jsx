@@ -26,7 +26,7 @@ function inicio() {
                         <h3>
                             Tu estilo no se copia. Se crea.
                         </h3>
-                        <button>Ver Catalogo</button>
+                        <Link to={'/catalogo'}><button>Ver Catalogo </button></Link>
                     </div>
                     <div className="container-img">
                         <img src={camisafon} alt="Imagen" />

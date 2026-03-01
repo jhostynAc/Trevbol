@@ -2,6 +2,8 @@ import './Catalogo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faClose, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { useContext } from 'react';
+import { Cartcontext } from '../Carcontex/CartProvider';
 import logo from '../Img/Logo.png';
 import { Link } from 'react-router';
 import { producto } from '../data';
@@ -9,55 +11,16 @@ import { useState } from 'react';
 import { all } from 'axios';
 
 export default function Catalogo() {
-    const [allproducts, setAllproducts] = useState([]);
-    const [total, setTotal] = useState(0);
-    const [contProduct, setCountProduct] = useState(0);
     const [activecart, setActiveCart] = useState(false);
     const [Talla, setTalla] = useState({});
-
-    const Cleancart = () => {
-        setAllproducts([]);
-        setCountProduct(0);
-        setTotal(0);
-
-    };
-
-    const ondeleteproduct = (product) => {
-        const results = allproducts.filter(item => item.id !== product.id);
-        setTotal(total - product.precio * product.quantity);
-        setCountProduct(contProduct - product.quantity);
-        setAllproducts(results)
-    }
-
-    const onaddCart = (product) => {
-        
-        const tallaSeleccionada = Talla[product.id];
-        if (!tallaSeleccionada) {
-            alert("Selecciona una talla");
-            return;
-        }
-        setAllproducts(prev => {
-            const exist = prev.find(item => item.id === product.id&&item.size===tallaSeleccionada);
-
-            if (exist) {
-                return prev.map(item =>
-                    item.id === product.id&&item.size===tallaSeleccionada
-                        ? {
-                            ...item,
-                            quantity: (item.quantity || 0) + 1
-                        }
-                        : item
-                );
-            }
-            return [...prev, { ...product,size:tallaSeleccionada,quantity: 1 }];
-        }
-        );
-
-        setCountProduct(prev => prev + 1);
-        setTotal(total + product.precio);
-
-    };
-    console.log(allproducts);
+    const {
+        addtoCart,
+        contProduct,
+        allproducts,
+        total,
+        removeFromCart,
+        cleanCart
+    } = useContext(Cartcontext);
 
     return (
         <>
@@ -84,7 +47,7 @@ export default function Catalogo() {
                                                 <span className="tallas">{product.size}</span>
                                                 <span className="preciopro">{product.precio}</span>
                                             </div>
-                                            <FontAwesomeIcon className='close-cart' icon={faClose} onClick={() => ondeleteproduct(product)} />
+                                            <FontAwesomeIcon className='close-cart' icon={faClose} onClick={() => removeFromCart(product)} />
                                         </div>
                                     ))}
                                     <div className="cart_total">
@@ -92,8 +55,8 @@ export default function Catalogo() {
                                         <span className="totalpagar">{total}</span>
                                     </div>
                                     <div className="btn-clear-send">
-                                  <button className="btnclearall" onClick={Cleancart}><FontAwesomeIcon icon={faTrash}/></button>
-                                   <Link className='btn-send'>hacer pedido</Link>
+                                        <button className="btnclearall" onClick={cleanCart}><FontAwesomeIcon icon={faTrash} /></button>
+                                        <Link className='btn-send' to={'/carrito'}>Ver carrito</Link>
                                     </div>
                                 </>
 
@@ -116,16 +79,16 @@ export default function Catalogo() {
                                 <h3>{product.nombre}</h3>
                                 <p>{product.descripcion}</p>
                                 <div className="botonestalla">
-                                    <button type='radio' className={Talla[product.id] === 'S' ? "size-btn active" : "size-btn"} onClick={() => setTalla({...Talla,[product.id]:"S"})}>S</button>
-                                    <button type='radio' className={Talla[product.id] === 'M' ? "size-btn active" : "size-btn"}  onClick={() => setTalla({...Talla,[product.id]:"M"})}>M</button>
-                                    <button type='radio' className={Talla[product.id] === 'L' ? "size-btn active" : "size-btn"}  onClick={() => setTalla({...Talla,[product.id]:"L"})}>L</button>
-                                    <button type='radio' className={Talla[product.id] === 'XL' ? "size-btn active" : "size-btn"}  onClick={() => setTalla({...Talla,[product.id]:"XL"})}>XL</button>
+                                    <button type='radio' className={Talla[product.id] === 'S' ? "size-btn active" : "size-btn"} onClick={() => setTalla({ ...Talla, [product.id]: "S" })}>S</button>
+                                    <button type='radio' className={Talla[product.id] === 'M' ? "size-btn active" : "size-btn"} onClick={() => setTalla({ ...Talla, [product.id]: "M" })}>M</button>
+                                    <button type='radio' className={Talla[product.id] === 'L' ? "size-btn active" : "size-btn"} onClick={() => setTalla({ ...Talla, [product.id]: "L" })}>L</button>
+                                    <button type='radio' className={Talla[product.id] === 'XL' ? "size-btn active" : "size-btn"} onClick={() => setTalla({ ...Talla, [product.id]: "XL" })}>XL</button>
                                 </div>
                                 <div className="precios">
                                     <p>$</p>
                                     <p>{product.precio}</p>
                                 </div>
-                                <button id='botonagregar' onClick={() => onaddCart(product)}>Agregar al carrito</button>
+                                <button id='botonagregar' onClick={() => addtoCart(product, Talla[product.id])}>Agregar al carrito</button>
                             </div></>
                     </div>
                 ))}
