@@ -56,7 +56,7 @@ export default function Serigrafia() {
                                     </div>
                                     <div className="btn-clear-send">
                                   <button className="btnclearall" onClick={cleanCart}><FontAwesomeIcon icon={faTrash}/></button>
-                                   <Link className='btn-send'>Ver carrito</Link>
+                                   <Link className='btn-send' to={'/carrito'}>Ver carrito</Link>
                                     </div>
                                 </>
 

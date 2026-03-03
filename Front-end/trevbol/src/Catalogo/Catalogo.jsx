@@ -29,7 +29,7 @@ export default function Catalogo() {
                 <div className="botones">
                     <ul>
                         <li ><Link to="/inicio">Inicio</Link></li>
-                        <li><Link to="sublimacion">Sublimacion</Link></li>
+                        <li><Link to="/sublimacion">Sublimacion</Link></li>
                         <li><Link to="/serigrafia">Serigrafia</Link></li>
                         <li id='activa'><Link to="/catalogo">Catalogo</Link></li>
                         <li id='carrito' onClick={() => setActiveCart(!activecart)}><FontAwesomeIcon icon={faCartShopping} /></li>

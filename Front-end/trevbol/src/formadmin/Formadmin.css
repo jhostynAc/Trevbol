@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #131416;
+}
+.formadmin{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 50vh;
+    justify-content: center;
+    color: #ffffff;
+    gap: 25px;
+}
+.formadmin input{
+    background-color: transparent;
+    color: #ffffff;
+    outline: none;
+    height: 40px;
+    border: 1px solid #333538;
+    border-radius: 25px;
+    padding-left: 15px;
+}
+.formadmin label{
+    margin-left: 15px;
+}
+.btn-sendformad{
+    text-decoration: none;
+    color: #000000;
+    margin-top: 2%;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 25px;
+    width: 40%;
+    margin-left: 25%;
+}
+
+.btn-sendformad:hover{
+    background-color: rgb(33, 97, 52);
+    color: white;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}

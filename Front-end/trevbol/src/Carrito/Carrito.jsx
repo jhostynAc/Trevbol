@@ -41,7 +41,7 @@ export default function Carrito() {
                 {allproducts.length > 0 && (
                     <>
                         <h3 className='precio-final'>Total: ${total}</h3>
-                        <Link className="btn-finalizar">Finalizar pedido</Link>
+                        <Link className="btn-finalizar" to={'/formulario'}>Finalizar pedido</Link>
                     </>
                 )}
             </div>

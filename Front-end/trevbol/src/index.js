@@ -9,6 +9,8 @@ import Sublimacion from './sublimacion/Sublimacion';
 import reportWebVitals from './reportWebVitals';
 import Carrito from './Carrito/Carrito';
 import { CartProvider } from './Carcontex/CartProvider';
+import Formulario from './Envio/Formulario';
+import Formadmin from './formadmin/Formadmin'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +23,8 @@ root.render(
         <Route path='/serigrafia' element={<Serigrafia />} />
         <Route path='/sublimacion' element={<Sublimacion />} />
         <Route path='/carrito' element={<Carrito />} />
+        <Route path='/formulario' element={<Formulario/>}/>
+        <Route path='/admin' element={<Formadmin/>}/>
       </Routes>
     </BrowserRouter>
   </CartProvider>
