@@ -12,7 +12,7 @@ export default function Formulario() {
                 <input type="text" placeholder='Contraseña' />
                 <button className="btn-sendformad">
                  Iniciar sesion
-                </button>
+                </button> 
             </div>
          </div>
         </>
