@@ -1,17 +1,28 @@
 import './Producto.css';
 import logo from '../Img/Logo.png';
-import { Link, useNavigate } from 'react-router'; 
+import { Link, useNavigate } from 'react-router';
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
-import Swal from 'sweetalert2'; 
+import Swal from 'sweetalert2';
 
 export default function Ventas() {
     const navigate = useNavigate();
     const [pedidos, setPedidos] = useState([]);
     const [editando, setEditando] = useState(false);
     const [idEditar, setIdEditar] = useState(null);
+
+    const estadoInicial = {
+        nombre: "",
+        apellidos: "",
+        cedula: "",
+        correo: "",
+        telefono: "",
+        direccion: "",
+        especificaciones: "",
+        estado: ""
+    };
 
     const [pedido, setPedido] = useState({
         nombre: "",
@@ -61,27 +72,18 @@ export default function Ventas() {
             }
         });
     };
-
     const editarPedido = (p) => {
-        setPedido({
-            nombre: p.nombre,
-            apellidos: p.apellidos,
-            cedula: p.cedula,
-            correo: p.correo,
-            telefono: p.telefono,
-            direccion: p.direccion,
-            especificaciones: p.especificaciones,
-            estado: p.estado
-        });
+        setPedido({ ...p });
         setIdEditar(p.id);
         setEditando(true);
-        window.scrollTo({ top: 0, behavior: 'smooth' }); 
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const actualizarPedido = async () => {
         try {
+            // 'pedido' ahora tiene los datos completos gracias al cambio anterior
             await axios.put(`http://localhost:8080/formpedido/${idEditar}`, pedido);
-            
+
             await Swal.fire({
                 title: '¡Actualizado!',
                 text: 'El pedido se ha modificado con éxito.',
@@ -90,15 +92,13 @@ export default function Ventas() {
                 showConfirmButton: false
             });
 
-            cargarPedidos();
             setEditando(false);
             setIdEditar(null);
-            setPedido({
-                nombre: "", apellidos: "", cedula: "", correo: "",
-                telefono: "", direccion: "", especificaciones: "", estado: ""
-            });
+            setPedido(estadoInicial); 
+            cargarPedidos();
         } catch (error) {
-            Swal.fire('Error', 'No se pudo actualizar el pedido', 'error');
+            console.error("Error en la actualización:", error.response?.data || error.message);
+            Swal.fire('Error', 'No se pudo actualizar el pedido. Verifica los datos.', 'error');
         }
     };
 
