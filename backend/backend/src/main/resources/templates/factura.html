@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Guía de compra</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; color: #333; }
+        .section { width: 100%; margin-bottom: 20px; }
+        
+        .clear { clear: both; height: 0; line-height: 0; display: block; }
+
+        .col-left { float: left; width: 48%; }
+        .col-right { float: right; width: 48%; text-align: right; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background-color: #000; color: #fff; padding: 10px; text-align: left; }
+        td { padding: 10px; border-bottom: 1px solid #eee; }
+        
+        .total-section { text-align: right; margin-top: 30px; border-top: 2px solid #000; padding-top: 10px; }
+        
+        .specs-container {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <div style="float: left; width: 30%;">
+            <img src="https://i.postimg.cc/fy7fPqrs/Logo.png" alt="Logo" style="width: 120px;" />
+        </div>
+        <div style="float: right; width: 65%; text-align: right;">
+            <h1 style="margin: 0; color: #000;">Guía de compra</h1>
+            <p style="margin: 5px 0;">Factura N°: <strong>{{numeroFactura}}</strong></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin-bottom: 20px;" />
+
+    <div class="section">
+        <div class="col-left">
+            <h4 style="margin-bottom: 8px; color: #555;">DATOS DEL CLIENTE</h4>
+            <p style="margin: 2px 0;"><strong>Nombre:</strong> {{nombre}} {{apellidos}}</p>
+            <p style="margin: 2px 0;"><strong>Correo:</strong> {{correo}}</p>
+            <p style="margin: 2px 0;"><strong>Celular:</strong> {{telefono}}</p>
+            <p style="margin: 2px 0;"><strong>Dirección:</strong> {{direccion}}</p>
+        </div>
+        <div class="col-right">
+            <h4 style="margin-bottom: 8px; color: #555;">DETALLES</h4>
+            <p style="margin: 2px 0;"><strong>Fecha de emisión:</strong> {{fecha}}</p>
+        </div>
+        
+        <div class="clear"></div> 
+
+        <div class="specs-container">
+            <p style="margin: 0;"><strong>Especificaciones:</strong> {{especificaciones}}</p>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <table>
+    <thead>
+        <tr>
+            <th style="text-align: left;">Producto</th>
+            <th style="text-align: center;">Cantidad</th> <th style="text-align: center;">Precio unitario</th> </tr>
+    </thead>
+    <tbody>
+        {{productos}}
+    </tbody>
+</table>
+
+    <div class="total-section">
+        <p style="font-size: 1.3em;"><strong>TOTAL A PAGAR:</strong> {{total}}</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px; color: #252525;">
+        <p>¡Gracias por su compra!</p>
+    </div>
+    <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; margin-top: 20px;">
+    <h4 style="margin-bottom: 15px; color: #333; border-bottom: 2px solid #000000; display: inline-block;">
+        Condiciones de Garantía y Cambios
+    </h4>
+    
+    <div style="margin-bottom: 15px;">
+        <strong style="color: #000000;">Garantía de Calidad:</strong>
+        <p style="margin: 5px 0; color: #555; font-size: 0.95rem;">
+            Nuestros productos cuentan con una garantía de <strong>30 días</strong> por defectos de fábrica (costuras o estampados). No aplica por mal lavado o desgaste natural por uso.
+        </p>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <strong style="color: #000000;"> Política de Cambios:</strong>
+        <ul style="margin: 5px 0; color: #555; font-size: 0.95rem; padding-left: 20px;">
+            <li>Los cambios por talla se realizan dentro de los primeros <strong>5 días</strong> hábiles tras recibir el producto.</li>
+            <li>La prenda debe estar <strong>nueva, con etiquetas y sin señales de uso</strong> o lavado.</li>
+            <li>Los costos de envío para cambios por talla corren por cuenta del cliente.</li>
+        </ul>
+    </div>
+
+    <div style="margin-bottom: 5px;">
+        <strong style="color: #000000;">Nota Importante:</strong>
+        <p style="margin: 5px 0; color: #555; font-size: 0.95rem;">
+            Productos personalizados (diseños exclusivos del cliente) <strong>no tienen cambio</strong>, a menos que presenten un defecto de fabricación evidente.
+        </p>
+    </div>
+</div>
+</body>
+</html>

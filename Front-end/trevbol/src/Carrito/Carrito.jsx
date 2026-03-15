@@ -25,7 +25,7 @@ export default function Carrito() {
                     <h2 className="mensaje-carrito">El carrito esta vacio</h2>
                 ) : (allproducts.map((product) => (
                     <div className="carTarje" key={`${product.id}-${product.size}`}>
-                        <img src={product.img} alt="" />
+                        <img src={product.imagenUrl} alt="" />
                         <p className="Nombre_Prenda">{product.nombre}</p>
                         <span className='precio'> {product.precio}</span>
                         <span className="tallaje">{product.talla}</span>

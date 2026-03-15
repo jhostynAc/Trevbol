@@ -1,6 +1,5 @@
 import './inicio.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import camisafon from '../Img/machape.png';
 import logo from '../Img/Logo.png';
@@ -50,8 +49,8 @@ function inicio() {
                     <p>Contactanos:</p>
             </div>
                 <div className="redes">
-                    <FontAwesomeIcon icon={faInstagram} />
-                    <FontAwesomeIcon icon={faFacebook} />
+                  <Link to="https://www.instagram.com/trevbol_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><FontAwesomeIcon icon={faInstagram} /></Link>
+                    <Link to="https://www.facebook.com/share/18H3uZxLhb/?mibextid=wwXIfr" target="_blank"><FontAwesomeIcon icon={faFacebook} /></Link>
 
                 </div>
                     <p>© 2026 Trevbol. Todos los derechos reservados.</p>

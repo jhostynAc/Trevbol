@@ -11,6 +11,9 @@ import Carrito from './Carrito/Carrito';
 import { CartProvider } from './Carcontex/CartProvider';
 import Formulario from './Envio/Formulario';
 import Formadmin from './formadmin/Formadmin'
+import Producto from './Admin/Producto';
+import Ventas from './Admin/Ventas';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +28,8 @@ root.render(
         <Route path='/carrito' element={<Carrito />} />
         <Route path='/formulario' element={<Formulario/>}/>
         <Route path='/admin' element={<Formadmin/>}/>
+        <Route path='/producto' element={<Producto />} />
+        <Route path='/ventas' element={<Ventas />} />
       </Routes>
     </BrowserRouter>
   </CartProvider>
