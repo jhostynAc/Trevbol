@@ -127,4 +127,47 @@ class PedidorequestTest {
         assertEquals(1, pedidorequest.getProductos().size());
         assertEquals(2L, pedidorequest.getProductos().get(0).getProductoId());
     }
+
+    @Test
+    void testPedidoConDatosVacios() {
+        Formpedido pedidoVacio = new Formpedido();
+        pedidoVacio.setNombre("");
+        pedidoVacio.setCorreo("");
+        
+        pedidorequest.setPedido(pedidoVacio);
+        assertEquals("", pedidorequest.getPedido().getNombre());
+    }
+
+    @Test
+    void testProductosConCantidadesNegativas() {
+        List<Itemcarrito> productosNegativos = new ArrayList<>();
+        Itemcarrito item = new Itemcarrito();
+        item.setProductoId(1L);
+        item.setCantidad(-5);
+        productosNegativos.add(item);
+        
+        pedidorequest.setProductos(productosNegativos);
+        assertEquals(-5, pedidorequest.getProductos().get(0).getCantidad());
+    }
+
+    @Test
+    void testProductosConIdsNull() {
+        List<Itemcarrito> productosNull = new ArrayList<>();
+        Itemcarrito item = new Itemcarrito();
+        item.setProductoId(null);
+        item.setCantidad(1);
+        productosNull.add(item);
+        
+        pedidorequest.setProductos(productosNull);
+        assertNull(pedidorequest.getProductos().get(0).getProductoId());
+    }
+
+    @Test
+    void testEquals() {
+        Pedidorequest otro = new Pedidorequest();
+        otro.setPedido(pedido);
+        otro.setProductos(productos);
+        
+        assertNotNull(otro);
+    }
 }

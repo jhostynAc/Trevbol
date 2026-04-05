@@ -10,7 +10,7 @@ class AdminTest {
 
     @BeforeEach
     void setUp() {
-        admin = new Admin();
+        admin = new Admin(); 
     }
 
     @Test

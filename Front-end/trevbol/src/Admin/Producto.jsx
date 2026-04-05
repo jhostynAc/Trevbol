@@ -156,7 +156,7 @@ export default function Producto() {
                     </div>
                     <div className="prodcto-ingreso">
                         <span className="info-productos">Categoría</span>
-                        <input list='Categoria' placeholder='Seleccionar...' name='categoria' value={producto.categoria} onChange={handleChange} />
+                        <input list='Categoria' placeholder='Seleccionar...' name='categoria' value={producto.categoria} onChange={handleChange} onFocus={(e) => { const temp = e.target.value; e.target.value = ''; setTimeout(() => e.target.value = temp, 0); }} />
                         <datalist id='Categoria'>
                             <option value="Sublimacion"></option>
                             <option value="Serigrafia"></option>
@@ -172,7 +172,7 @@ export default function Producto() {
                     </div>
                     <div className="prodcto-ingreso">
                         <span className="info-productos">Estado</span>
-                        <input list="estado" placeholder='Estado' name='estado' value={producto.estado} onChange={handleChange} />
+                        <input list="estado" placeholder='Estado' name='estado' value={producto.estado} onChange={handleChange} onFocus={(e) => { const temp = e.target.value; e.target.value = ''; setTimeout(() => e.target.value = temp, 0); }} />
                         <datalist id='estado'>
                             <option value="Disponible"></option>
                             <option value="Agotado"></option>

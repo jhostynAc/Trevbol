@@ -168,7 +168,7 @@ export default function Ventas() {
 
                     <div className="prodcto-ingreso">
                         <span className="info-productos">Estado del pedido</span>
-                        <input list="estadoPedido" placeholder="Estado" value={pedido.estado} onChange={(e) => setPedido({ ...pedido, estado: e.target.value })} />
+                        <input list="estadoPedido" placeholder="Estado" value={pedido.estado} onChange={(e) => setPedido({ ...pedido, estado: e.target.value })} onFocus={(e) => { const temp = e.target.value; e.target.value = ''; setTimeout(() => e.target.value = temp, 0); }} />
                         <datalist id="estadoPedido">
                             <option value="Enviado"></option>
                             <option value="Entregado"></option>

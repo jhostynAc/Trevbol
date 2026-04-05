@@ -25,7 +25,7 @@ class ProductocontrollerTest {
         controller = new Productocontroller(productorepository);
         
         producto = new Producto();
-        producto.setNombre("Camiseta");
+        producto.setNombre("naa");
         producto.setDescripcion("Camiseta de algodón");
         producto.setCategoria("Ropa");
         producto.setPrecio(29.99);
@@ -54,7 +54,7 @@ class ProductocontrollerTest {
         Producto resultado = controller.crearProducto(producto);
         
         assertNotNull(resultado);
-        assertEquals("Camiseta", resultado.getNombre());
+        assertEquals("naa", resultado.getNombre());
         verify(productorepository, times(1)).save(producto);
     }
 
@@ -92,5 +92,98 @@ class ProductocontrollerTest {
         
         assertNotNull(resultado);
         assertEquals(0, resultado.size());
+    }
+
+    @Test
+    void testCrearProductoConNombreVacio() {
+        producto.setNombre("");
+        when(productorepository.save(producto)).thenReturn(producto);
+        
+        Producto resultado = controller.crearProducto(producto);
+        
+        assertNotNull(resultado);
+        assertEquals("", resultado.getNombre());
+    }
+
+    @Test
+    void testCrearProductoConPrecioNegativo() {
+        producto.setPrecio(-10.0);
+        when(productorepository.save(producto)).thenReturn(producto);
+        
+        Producto resultado = controller.crearProducto(producto);
+        
+        assertNotNull(resultado);
+        assertEquals(-10.0, resultado.getPrecio());
+    }
+
+    @Test
+    void testCrearProductoConPrecioCero() {
+        producto.setPrecio(0.0);
+        when(productorepository.save(producto)).thenReturn(producto);
+        
+        Producto resultado = controller.crearProducto(producto);
+        
+        assertNotNull(resultado);
+        assertEquals(0.0, resultado.getPrecio());
+    }
+
+    @Test
+    void testCrearProductoConEstadoInactivo() {
+        producto.setEstado("inactivo");
+        when(productorepository.save(producto)).thenReturn(producto);
+        
+        Producto resultado = controller.crearProducto(producto);
+        
+        assertNotNull(resultado);
+        assertEquals("inactivo", resultado.getEstado());
+    }
+
+    @Test
+    void testActualizarProductoConDatosVacios() {
+        Long id = 1L;
+        Producto productoVacio = new Producto();
+        productoVacio.setNombre("");
+        productoVacio.setDescripcion("");
+        productoVacio.setCategoria("");
+        productoVacio.setPrecio(0.0);
+        productoVacio.setImagenUrl("");
+        productoVacio.setEstado("");
+        
+        when(productorepository.findById(id)).thenReturn(java.util.Optional.of(producto));
+        when(productorepository.save(any(Producto.class))).thenReturn(productoVacio);
+        
+        Producto resultado = controller.actualizarProducto(id, productoVacio);
+        
+        assertNotNull(resultado);
+        assertEquals("", resultado.getNombre());
+    }
+
+    @Test
+    void testActualizarProductoConIdNull() {
+        Producto resultado = controller.actualizarProducto(null, producto);
+        
+        assertNull(resultado);
+    }
+
+    @Test
+    void testCrearProductoLanzaExcepcion() {
+        when(productorepository.save(producto)).thenThrow(new RuntimeException("Error al guardar"));
+        
+        assertThrows(RuntimeException.class, () -> controller.crearProducto(producto));
+    }
+
+    @Test
+    void testListarProductosLanzaExcepcion() {
+        when(productorepository.findAll()).thenThrow(new RuntimeException("Error al listar"));
+        
+        assertThrows(RuntimeException.class, () -> controller.listarProductos());
+    }
+
+    @Test
+    void testActualizarProductoLanzaExcepcion() {
+        Long id = 1L;
+        when(productorepository.findById(id)).thenThrow(new RuntimeException("Error al buscar"));
+        
+        assertThrows(RuntimeException.class, () -> controller.actualizarProducto(id, producto));
     }
 }

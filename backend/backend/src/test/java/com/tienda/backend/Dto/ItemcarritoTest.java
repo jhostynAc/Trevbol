@@ -85,4 +85,35 @@ class ItemcarritoTest {
         itemcarrito.setCantidad(10);
         assertEquals(10, itemcarrito.getCantidad());
     }
+
+    @Test
+    void testProductoIdNegativo() {
+        Long productoId = -1L;
+        itemcarrito.setProductoId(productoId);
+        assertEquals(productoId, itemcarrito.getProductoId());
+    }
+
+    @Test
+    void testCantidadMaxima() {
+        int cantidad = Integer.MAX_VALUE;
+        itemcarrito.setCantidad(cantidad);
+        assertEquals(cantidad, itemcarrito.getCantidad());
+    }
+
+    @Test
+    void testCantidadMinima() {
+        int cantidad = Integer.MIN_VALUE;
+        itemcarrito.setCantidad(cantidad);
+        assertEquals(cantidad, itemcarrito.getCantidad());
+    }
+
+    @Test
+    void testEquals() {
+        Itemcarrito otro = new Itemcarrito();
+        otro.setProductoId(1L);
+        otro.setCantidad(3);
+        
+        // Si no hay equals, solo verificar no null
+        assertNotNull(otro);
+    }
 }

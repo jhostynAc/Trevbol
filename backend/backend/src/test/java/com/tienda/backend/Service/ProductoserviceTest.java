@@ -141,4 +141,73 @@ class ProductoserviceTest {
         assertEquals(0, resultado.size());
         verify(productorepository, times(1)).findAll();
     }
+
+    @Test
+    void testSaveProductoConDatosInvalidos() {
+        Producto productoInvalido = new Producto();
+        productoInvalido.setNombre("");
+        productoInvalido.setPrecio(-10.0);
+        
+        when(productorepository.save(productoInvalido)).thenReturn(productoInvalido);
+        
+        Producto resultado = productoservice.saveProducto(productoInvalido);
+        
+        assertNotNull(resultado);
+        assertEquals("", resultado.getNombre());
+        assertEquals(-10.0, resultado.getPrecio());
+    }
+
+    @Test
+    void testUpdateProductoConDatosVacios() {
+        Long id = 1L;
+        Producto productoVacio = new Producto();
+        productoVacio.setNombre("");
+        productoVacio.setPrecio(0.0);
+        
+        when(productorepository.findById(id)).thenReturn(Optional.of(producto));
+        when(productorepository.save(any(Producto.class))).thenReturn(productoVacio);
+        
+        Producto resultado = productoservice.updateProducto(id, productoVacio);
+        
+        assertNotNull(resultado);
+        assertEquals("", resultado.getNombre());
+    }
+
+    @Test
+    void testDeleteProductoLanzaExcepcion() {
+        Long id = 1L;
+        doThrow(new RuntimeException("Error al eliminar")).when(productorepository).deleteById(id);
+        
+        assertThrows(RuntimeException.class, () -> productoservice.deleteProducto(id));
+    }
+
+    @Test
+    void testGetProductoByIdLanzaExcepcion() {
+        Long id = 1L;
+        when(productorepository.findById(id)).thenThrow(new RuntimeException("Error al buscar"));
+        
+        assertThrows(RuntimeException.class, () -> productoservice.getProductoById(id));
+    }
+
+    @Test
+    void testSaveProductoLanzaExcepcion() {
+        when(productorepository.save(producto)).thenThrow(new RuntimeException("Error al guardar"));
+        
+        assertThrows(RuntimeException.class, () -> productoservice.saveProducto(producto));
+    }
+
+    @Test
+    void testUpdateProductoLanzaExcepcion() {
+        Long id = 1L;
+        when(productorepository.findById(id)).thenThrow(new RuntimeException("Error al buscar"));
+        
+        assertThrows(RuntimeException.class, () -> productoservice.updateProducto(id, producto));
+    }
+
+    @Test
+    void testGetAllProductosLanzaExcepcion() {
+        when(productorepository.findAll()).thenThrow(new RuntimeException("Error al listar"));
+        
+        assertThrows(RuntimeException.class, () -> productoservice.getAllProductos());
+    }
 }
