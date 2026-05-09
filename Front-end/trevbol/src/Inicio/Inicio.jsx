@@ -33,7 +33,7 @@ function inicio() {
                 </div>
             </div>
             <div className="titulo">
-                <h3>Collage de productos</h3>
+                <h3>Collage de diseños</h3>
             </div>
             <div className="container_collage">
                 <div class="parent">

@@ -22,7 +22,6 @@ export default function Catalogo() {
         cleanCart
     } = useContext(Cartcontext);
 
-    // Configuración del aviso rápido (Toast)
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -41,7 +40,6 @@ export default function Catalogo() {
             });
     }, []);
 
-    // Función para agregar al carrito con validación de talla
     const handleAddToCart = (p, tallaSeleccionada) => {
         if (!tallaSeleccionada) {
             Toast.fire({
@@ -59,7 +57,6 @@ export default function Catalogo() {
         });
     };
 
-    // Función para vaciar carrito (Una sola confirmación)
     const handleCleanCart = () => {
         Swal.fire({
             title: '¿Vaciar carrito?',
